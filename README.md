@@ -2,7 +2,7 @@
 
 I'm **fanSun**, a Front-end developer from **China** <img src="https://user-images.githubusercontent.com/29775873/142716615-98e19a67-393c-47c9-b9e4-c9cacb1a6ffd.png" width="28" />. In most cases, active in the following. Welcome to try them.
 
-
+![](https://github.com/penghuwan/water.js/blob/master/logo.png)
 
 <h3> <img src="https://emojis.slackmojis.com/emojis/images/1621024394/39092/cat-roll.gif?1621024394" width="28" /> <a href="https://github.com/xrkffgg/xrkffgg/blob/master/quotations.md"> motto</a></h3>
 
