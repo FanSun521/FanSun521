@@ -27,7 +27,7 @@
 
 <p></p>
 
-<img style="float: right" width="100" height="100" src="https://th.bing.com/th/id/R.30a64d942b4a1ab8672c35a007876429?rik=bQZH%2bdPXCikIUA&riu=http%3a%2f%2fwww.kuaipng.com%2fUploads%2fpic%2fw%2f2023%2f07-06%2f143254%2fwater_143254_698_698_.png&ehk=wy8PTvdwjRHdfHnMHqqPSiWPUn2rMo1k%2bF9p7maWiBg%3d&risl=&pid=ImgRaw&r=0" />
+<img align="right" width="100" height="100" src="https://th.bing.com/th/id/R.30a64d942b4a1ab8672c35a007876429?rik=bQZH%2bdPXCikIUA&riu=http%3a%2f%2fwww.kuaipng.com%2fUploads%2fpic%2fw%2f2023%2f07-06%2f143254%2fwater_143254_698_698_.png&ehk=wy8PTvdwjRHdfHnMHqqPSiWPUn2rMo1k%2bF9p7maWiBg%3d&risl=&pid=ImgRaw&r=0" />
 
 - [网易](https://www.netease.com/?utf=1) 2023-11 —— 2024-5
   - 工作岗位：前端实习生
