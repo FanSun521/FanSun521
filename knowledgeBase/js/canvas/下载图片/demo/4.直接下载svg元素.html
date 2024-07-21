@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg
+      version="1.1"
+      baseProfile="full"
+      width="300"
+      height="200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100%" height="100%" fill="red" />
+      <circle cx="150" cy="100" r="80" fill="green" />
+      <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">
+        SVG
+      </text>
+    </svg>
+    <button>点击下载</button>
+    <img id="img" src="" alt="img" />
+  </body>
+
+  <script>
+    const svg = document.querySelector("svg");
+    const button = document.querySelector("button");
+    const img = document.querySelector("#img");
+    const a = document.querySelector("a");
+
+    button.addEventListener("click", () => {
+      // dom => 序列化为string：其实就是html代码文本
+      const svgData = new XMLSerializer().serializeToString(svg);
+      // string => 转化为url
+      const imgURI = "data:image/svg+xml;base64," + btoa(svgData);
+
+      img.src = imgURI;
+
+      img.onload = () => {
+        const a = document.createElement("a");
+        a.href = imgURI;
+        a.download = "img";
+        a.click();
+      };
+    });
+  </script>
+</html>

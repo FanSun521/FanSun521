@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+  <body>
+    <div>
+      <img
+        src="https://cdn.glitch.me/4c9ebeb9-8b9a-4adc-ad0a-238d9ae00bb5%2Fmdn_logo-only_color.svg"
+      />
+      <button>下载图片</button>
+      <p>一行段落</p>
+    </div>
+  </body>
+  <script>
+    const button = document.querySelector("button");
+    const div = document.querySelector("div");
+
+    // 下载图片
+    const downloadImg = (dom, fileName, fileType, width, height) => {
+      // 使用 html2canvas 将 DOM 元素转换为 canvas
+      html2canvas(div, {
+        useCORS: true,
+        width: width ?? div.clientWidth,
+        height: height ??  div.clientHeight
+      }).then((canvas) => {
+        // 显示到网页上
+        document.body.appendChild(canvas)
+        const url = canvas.toDataURL(`image/${fileType ?? "png"}`);
+        // 通过a标签点击下载
+        const a = document.createElement("a");
+        // 设置下载地址
+        a.href = url;
+        // 设置下载图片名
+        a.download = fileName ?? "默认";
+        // 触发点击
+        a.click();
+      })
+    };
+
+    button.addEventListener("click", () => {
+      downloadImg(div, '111', 'jpeg');
+    });
+  </script>
+</html>
