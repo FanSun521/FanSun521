@@ -6,11 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <img
+    <img
       src="https://cdn.glitch.me/4c9ebeb9-8b9a-4adc-ad0a-238d9ae00bb5%2Fmdn_logo-only_color.svg"
-    /> -->
+    />
     <!-- 不可跨域图片 -->
-    <img src="https://img.ixintu.com/upload/jpg/20210523/c6a094f5faf581b0b8b8ac24837f0fd4_18480_512_512.jpg!con">
+    <!-- <img
+      src="https://img.ixintu.com/upload/jpg/20210523/c6a094f5faf581b0b8b8ac24837f0fd4_18480_512_512.jpg!con"
+    /> -->
     <button>下载图片</button>
   </body>
   <script>
@@ -21,7 +23,7 @@
     const downloadImg = (img, fileName, fileType, width, height) => {
       // 创建canvas画布
       const canvas = document.createElement("canvas");
-      // 设置画布类型 2d可以理解画布能力是二维的平面 其他类型看mdn
+      // 设置画布类型 2d 可以理解画布能力是二维的平面 其他类型看mdn
       const ctx = canvas.getContext("2d");
       // 设置允许跨域访问
       img.crossOrigin = "Anonymous";
@@ -29,24 +31,25 @@
       // 设置crossOrigin属性后，浏览器会重新请求图片，所以需要等图片加载完毕后才绘制
       img.onload = () => {
         // 设置画布宽高（导出图片宽高） 跟图片宽高保持一致即可
-        canvas.width = width ?? img.width;
-        canvas.height = height ?? img.height;
+        canvas.width = width;
+        canvas.height = height;
         // 将图片绘制到画布上
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         document.body.appendChild(canvas);
-        // 将canvas转化为DataURL 是一种资源协议，即前缀为 data: 协议，类似https:
-        const url = canvas.toDataURL(`image/${fileType ?? "png"}`);
+        // 将canvas转化为url
+        const url = canvas.toDataURL(`image/${fileType}`);
         // 通过a标签点击下载
         const a = document.createElement("a");
+        // 设置下载地址
         a.href = url;
         // 设置下载图片名
-        a.download = fileName ?? "默认";
+        a.download = fileName;
         a.click();
       };
     };
 
     button.addEventListener("click", () => {
-      downloadImg(img);
+      downloadImg(img, "文件名", "jpeg", 100, 100);
     });
   </script>
 </html>

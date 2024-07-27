@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      src="https://cdn.glitch.me/4c9ebeb9-8b9a-4adc-ad0a-238d9ae00bb5%2Fmdn_logo-only_color.svg"
+    />
+    <!-- 不可跨域图片 -->
+    <!-- <img
+      src="https://img.ixintu.com/upload/jpg/20210523/c6a094f5faf581b0b8b8ac24837f0fd4_18480_512_512.jpg!con"
+    /> -->
+    <button>下载图片</button>
+  </body>
+  <script>
+    document.querySelector("button").addEventListener("click", () => {
+      const imageUrl =
+        "https://cdn.glitch.me/4c9ebeb9-8b9a-4adc-ad0a-238d9ae00bb5%2Fmdn_logo-only_color.svg";
+      fetch(imageUrl)
+        .then((response) => {
+          // blob(): 将响应体内容转化为 blob 对象
+          return response.blob();
+        })
+        .then((blob) => {
+          // 将 blob 对象转化为 url
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "文件名.jpeg";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          window.URL.revokeObjectURL(url);
+        })
+        .catch((error) => console.error("下载失败:", error));
+    });
+  </script>
+</html>
